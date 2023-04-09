@@ -50,6 +50,10 @@
 
     
         
+            
+<link rel="stylesheet" href="/assets/css/gitment.css">
+
+        
     
 </head>
 
@@ -375,6 +379,16 @@
         
         
             
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#gitment"
+                        aria-label="Kommentieren"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
         
         <li class="post-action">
             
@@ -389,6 +403,8 @@
 
         
         
+            
+                <div id="gitment"></div>
             
         
     </div>
@@ -447,6 +463,23 @@
 <!--SCRIPTS END-->
 
 
+    
+        
+<script src="/assets/js/gitment.js"></script>
+
+        <script type="text/javascript">
+          (function() {
+            new Gitment({
+              id: 'http://chenzp.top/categories/index.html',
+              owner: '2545229027@qq.com',
+              repo: 'https://github.com/mrmoda/blog-comments.git',
+              oauth: {
+                client_id: 'd147d25feff783d92aa6',
+                client_secret: '4d5863397c6d8b7316ef82f320f67cb34bf9a1e4'
+              }
+            }).render('gitment')
+          })()
+        </script>
     
 
 
