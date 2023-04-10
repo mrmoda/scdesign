@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="墨说有话">
-    <title>辞旧迎新的开篇 - 墨说有话</title>
+    <title>轻松搭建博客评论组件Gitalk - 墨说有话</title>
     <meta name="author" content="墨大先生">
     
     
@@ -17,21 +17,28 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"墨大先生","sameAs":["/all-wechat","https://facebook.com/simon.chen.5473894","mailto:2545229027@qq.com","/atom.xml","#about"],"image":"gravatar.png"},"articleBody":"\n\n\n\n\n 我终于有空搞搞自己的博客了。\n\n\n\n&emsp;&emsp;搞个人博客是我一直以来的夙愿。&emsp;&emsp;但由于拖延症晚期的各种表征（比如懒），导致最终都没能落地。&emsp;&emsp;今年我把坚持写文章作为最重要的个人年度项目。&emsp;&emsp;除整合曾经发表过的文章之外，再继续原创关于设计与技术的文章。&emsp;&emsp;（当然，缩短发布周期是亟待解决的重中之重）&emsp;&emsp;……\n&emsp;&emsp;魔幻的2022年刚刚过去不久，充满未知的2023年即将过去三分之一。&emsp;&emsp;自2019年起，疫情肆虐让我们生活的这个世界完全改变了。&emsp;&emsp;之后的三年好似白驹过隙，而过去的种种仿佛都变成了前世的记忆。&emsp;&emsp;出门戴口罩、每隔三天的小棉棒刮喉咙，以及对绿色二维码的偏爱。&emsp;&emsp;从居家隔离、无接触配送、到被感染再隔离。&emsp;&emsp;我们似乎习惯了疫情之下的生活。\n&emsp;&emsp;那些愤怒、恐惧与混乱，使我不禁联想起上个世纪20年代的世界。&emsp;&emsp;生逢乱世的先辈们是否也曾同样充满迷茫、彷徨与无可奈何？\n&emsp;&emsp;有人说，那是属于现代人的黄金时代。&emsp;&emsp;它为身处混沌的人类照亮方向，更诞生了无数影响深远的大家。&emsp;&emsp;也有人说，这是属于当代人的黄金时代。&emsp;&emsp;它日新月异，饱含风险与机遇，同时也充满未知与挑战。\n&emsp;&emsp;我们无法选择自己出生的时代，但可以选择活在当下的方式。&emsp;&emsp;假如人生唯有盖棺方能定论，那么重要的便是活着的过程。&emsp;&emsp;不断地探索与尝试，经历失败与挫折的洗礼。&emsp;&emsp;如此，最终功成与否似乎都不再重要了。&emsp;&emsp;……\n&emsp;&emsp;也许走出阴霾的最优解，就是选择相信。&emsp;&emsp;相信光明，必将到来。\n&emsp;&emsp;那么就在这2023的开端，祝自己好运，也祝各位好运。\n\n\n","dateCreated":"2023-04-06T20:28:18+08:00","dateModified":"2023-04-11T00:17:09+08:00","datePublished":"2023-04-06T20:28:18+08:00","description":"\n告别魔幻的2022，迎接七成新的2023以及充满未知的将来。\n","headline":"辞旧迎新的开篇","image":["thumb.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"},"publisher":{"@type":"Organization","name":"墨大先生","sameAs":["/all-wechat","https://facebook.com/simon.chen.5473894","mailto:2545229027@qq.com","/atom.xml","#about"],"image":"gravatar.png","logo":{"@type":"ImageObject","url":"gravatar.png"}},"url":"http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/","keywords":"杂文","thumbnailUrl":"thumb.png"}</script>
-    <meta name="description" content="告别魔幻的2022，迎接七成新的2023以及充满未知的将来。">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"墨大先生","sameAs":["/all-wechat","https://facebook.com/simon.chen.5473894","mailto:2545229027@qq.com","/atom.xml","#about"],"image":"gravatar.png"},"articleBody":"\n\nGitalk评论组件，用过都说好！！\n\n\n最近想给博客加个评论功能，被朋友推荐提到最多的就是Gitalk评论组件。它无需自建数据库，而且支持Github登录，非常适合轻量级网站应用。\n虽说组件很赞，但对于我这种技术小白来说还是研究了一晚上才终于成功部署。\n于是我决定把详细的安装过程以及注意事项整理分享出来，希望能帮到和我一样有需要的朋友。\n\n安装好的Gitalk界面长这样👇\n\n接下来，让我们开始为自己的博客添加Gitalk组件。💪\n\n\n\n创建评论仓库repo我们需要一个容器来存放Gitalk生成的评论数据，可以在Github上创建一个存放评论的空仓库，我们就叫它gitalk-comments。\n\n\n已经创建完的空仓库：\n\n\n\n\n\n创建OAuth application接下来，我们需要在Github上创建一个属于我们自己的Gitalk应用。\n点击右上角用户头像，在菜单中点击“Settings”，进入设置页面。\n\n\n\n在设置页面中，点击左侧列表最底部Developer settings。\n\n\n进入创建OAuth application页面。\n\n\n\n\n注意：这里的Homepage URL与Authorization callback URL要填写自己博客的域名。点击“Register application”注册之后，我们会跳转到详细配置页面。\n\n\n我们还需要创建这个clientSecret密钥，点击“Generate a new client secret”即可创建。记录下这里的client ID以及client Secret。\n安装Gitalk运行终端，打开Blog文件根目录。比如我的Blog文件在E:\\blog，那么在终端输入如下指令：\ncd E:\\blog\n然后输入npm指令安装Gitalk：\nnpm i --save gitalk\n\n\n配置Gitalk在Blog的首页文件index.html的&lt;head&gt;&lt;/head&gt;标签之间引入Gitalk：\n&lt;head&gt;\n&lt;!--引入Gitalk--&gt;\n&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.css&quot;&gt;\n&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.min.js&quot;&gt;&lt;&#x2F;script&gt;\n&lt;&#x2F;head&gt;\n在index.html的&lt;body&gt;&lt;/body&gt;标签之间创建一个容器用于存放Gitalk：\n&lt;div id&#x3D;&quot;gitalk-container&quot;&gt;&lt;&#x2F;div&gt;\n添加如下参数，声明变量gitalk:\nvar gitalk &#x3D; new Gitalk(&#123;\n    clientID: &#39;填入刚创建OAuth的client ID&#39;,\n    clientSecret: &#39;填入刚创建OAuth的client Secret&#39;,\n    repo: &#39;填入评论仓库的repo名称&#39;,\n    owner: &#39;填入你的Github用户名&#39;,\n    admin:  [&#39;填入你的Github用户名&#39;],\n    id: location.pathname,      &#x2F;&#x2F; 这个不要改\n    language:&#39;zh-CN&#39;, &#x2F;&#x2F; 设置界面语言为中文，如需英文改为&#39;en&#39;\n    distractionFreeMode: false  &#x2F;&#x2F; 这是评述输入框聚焦模式，默认关闭，如需开启改成&#39;true&#39;\n&#125;)\n在以上参数中分别填入刚刚创建好的OAuth application信息。\n注意：这里repo的名称只需填入创建仓库时填写的名称，无需添加.github.io等后缀。\n在参数代码后添加render，以渲染index.html页面中的评论组件界面：\ngitalk.render(&#39;gitalk-container&#39;)\n\n\n以上配置完成后，即可重新部署Blog页面，快去看看效果吧~","dateCreated":"2023-04-10T22:20:33+08:00","dateModified":"2023-04-11T02:18:47+08:00","datePublished":"2023-04-10T22:20:33+08:00","description":"\n从此你不再是一个人孤独寂寞冷~\n","headline":"轻松搭建博客评论组件Gitalk","image":["thumb.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"},"publisher":{"@type":"Organization","name":"墨大先生","sameAs":["/all-wechat","https://facebook.com/simon.chen.5473894","mailto:2545229027@qq.com","/atom.xml","#about"],"image":"gravatar.png","logo":{"@type":"ImageObject","url":"gravatar.png"}},"url":"http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/","keywords":"瞎折腾, 博客","thumbnailUrl":"thumb.png"}</script>
+    <meta name="description" content="从此你不再是一个人孤独寂寞冷~">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="辞旧迎新的开篇">
-<meta property="og:url" content="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/index.html">
+<meta property="og:title" content="轻松搭建博客评论组件Gitalk">
+<meta property="og:url" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/index.html">
 <meta property="og:site_name" content="墨说有话">
-<meta property="og:description" content="告别魔幻的2022，迎接七成新的2023以及充满未知的将来。">
+<meta property="og:description" content="从此你不再是一个人孤独寂寞冷~">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/01.png">
-<meta property="article:published_time" content="2023-04-06T12:28:18.000Z">
-<meta property="article:modified_time" content="2023-04-10T16:17:09.531Z">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-001.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-002.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-003.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-004.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-005.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-006.webp">
+<meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-007.webp">
+<meta property="article:published_time" content="2023-04-10T14:20:33.000Z">
+<meta property="article:modified_time" content="2023-04-10T18:18:47.368Z">
 <meta property="article:author" content="墨大先生">
-<meta property="article:tag" content="杂文">
+<meta property="article:tag" content="瞎折腾">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/01.png">
+<meta name="twitter:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/20230410_01_img-001.webp">
     
     
         
@@ -40,8 +47,8 @@
         <meta property="og:image" content="http://chenzp.top/assets/images/gravatar.png"/>
     
     
-        <meta property="og:image" content="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/thumb.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/thumb.png"/>
+        <meta property="og:image" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/thumb.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/thumb.png"/>
     
     
     
@@ -278,14 +285,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            辞旧迎新的开篇
+            轻松搭建博客评论组件Gitalk
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2023-04-06T20:28:18+08:00">
+    <time datetime="2023-04-10T22:20:33+08:00">
 	
-		    4月 06, 2023
+		    4月 10, 2023
     	
     </time>
     
@@ -298,28 +305,89 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <!-- excerpt -->
-
-<br>
-
 <blockquote>
-<p> 我终于有空搞搞自己的博客了。</p>
+<p>Gitalk评论组件，用过都说好！！</p>
 </blockquote>
 <br>
+最近想给博客加个评论功能，被朋友推荐提到最多的就是Gitalk评论组件。它无需自建数据库，而且支持Github登录，非常适合轻量级网站应用。
+虽说组件很赞，但对于我这种技术小白来说还是研究了一晚上才终于成功部署。
+于是我决定把详细的安装过程以及注意事项整理分享出来，希望能帮到和我一样有需要的朋友。
 
-<p><img src="/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/01.png"><br>&emsp;&emsp;搞个人博客是我一直以来的夙愿。<br>&emsp;&emsp;但由于拖延症晚期的各种表征（比如懒），导致最终都没能落地。<br>&emsp;&emsp;今年我把坚持写文章作为最重要的个人年度项目。<br>&emsp;&emsp;除整合曾经发表过的文章之外，再继续原创关于设计与技术的文章。<br>&emsp;&emsp;（当然，缩短发布周期是亟待解决的重中之重）<br>&emsp;&emsp;……</p>
-<p>&emsp;&emsp;魔幻的2022年刚刚过去不久，充满未知的2023年即将过去三分之一。<br>&emsp;&emsp;自2019年起，疫情肆虐让我们生活的这个世界完全改变了。<br>&emsp;&emsp;之后的三年好似白驹过隙，而过去的种种仿佛都变成了前世的记忆。<br>&emsp;&emsp;出门戴口罩、每隔三天的小棉棒刮喉咙，以及对绿色二维码的偏爱。<br>&emsp;&emsp;从居家隔离、无接触配送、到被感染再隔离。<br>&emsp;&emsp;我们似乎习惯了疫情之下的生活。</p>
-<p>&emsp;&emsp;那些愤怒、恐惧与混乱，使我不禁联想起上个世纪20年代的世界。<br>&emsp;&emsp;生逢乱世的先辈们是否也曾同样充满迷茫、彷徨与无可奈何？</p>
-<p>&emsp;&emsp;有人说，那是属于现代人的黄金时代。<br>&emsp;&emsp;它为身处混沌的人类照亮方向，更诞生了无数影响深远的大家。<br>&emsp;&emsp;也有人说，这是属于当代人的黄金时代。<br>&emsp;&emsp;它日新月异，饱含风险与机遇，同时也充满未知与挑战。</p>
-<p>&emsp;&emsp;我们无法选择自己出生的时代，但可以选择活在当下的方式。<br>&emsp;&emsp;假如人生唯有盖棺方能定论，那么重要的便是活着的过程。<br>&emsp;&emsp;不断地探索与尝试，经历失败与挫折的洗礼。<br>&emsp;&emsp;如此，最终功成与否似乎都不再重要了。<br>&emsp;&emsp;……</p>
-<p>&emsp;&emsp;也许走出阴霾的最优解，就是选择相信。<br>&emsp;&emsp;相信光明，必将到来。</p>
-<p>&emsp;&emsp;那么就在这2023的开端，祝自己好运，也祝各位好运。</p>
+<p>安装好的Gitalk界面长这样👇<br><br></p>
+<center><img src="20230410_01_img-001.webp"></img></center>
+接下来，让我们开始为自己的博客添加Gitalk组件。💪
 <br>
 <br>
-<!-- excerpt -->
+
+<h4 id="创建评论仓库repo"><a href="#创建评论仓库repo" class="headerlink" title="创建评论仓库repo"></a>创建评论仓库repo</h4><p>我们需要一个容器来存放Gitalk生成的评论数据，可以在<a target="_blank" rel="noopener" href="https://github.com/">Github</a>上创建一个存放评论的空仓库，我们就叫它<code>gitalk-comments</code>。<br><br></p>
+<center><img src="20230410_01_img-002.webp"></img></center>
+<br>
+已经创建完的空仓库：
+<br>
+<center><img src="20230410_01_img-003.webp"></img></center>
+<br>
+<br>
+
+<h4 id="创建OAuth-application"><a href="#创建OAuth-application" class="headerlink" title="创建OAuth application"></a>创建OAuth application</h4><p>接下来，我们需要在Github上<a target="_blank" rel="noopener" href="https://github.com/settings/profile">创建一个属于我们自己的Gitalk应用</a>。</p>
+<p>点击右上角用户头像，在菜单中点击“Settings”，进入设置页面。</p>
+<center><img src="20230410_01_img-004.webp"></img></center>
+<br>
+
+<p>在设置页面中，点击左侧列表最底部<code>Developer settings</code>。<br><br></p>
+<center><img src="20230410_01_img-005.webp"></img></center>
+<br>
+进入创建OAuth application页面。
+<br>
+<center><img src="20230410_01_img-006.webp"></img></center>
+<br>
+
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><font style="color:#FF0000;">注意：</font></h5><p>这里的<code>Homepage URL</code>与<code>Authorization callback URL</code>要填写自己博客的域名。<br><br><br>点击“Register application”注册之后，我们会跳转到详细配置页面。<br><br></p>
+<center><img src="20230410_01_img-007.webp"></img></center>
+
+<p>我们还需要创建这个<code>clientSecret</code>密钥，点击“Generate a new client secret”即可创建。<br>记录下这里的<code>client ID</code>以及<code>client Secret</code>。<br><br></p>
+<h4 id="安装Gitalk"><a href="#安装Gitalk" class="headerlink" title="安装Gitalk"></a>安装Gitalk</h4><p>运行终端，打开Blog文件根目录。比如我的Blog文件在<code>E:\blog</code>，那么在终端输入如下指令：</p>
+<pre class="line-numbers language-none"><code class="language-none">cd E:\blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后输入npm指令安装Gitalk：</p>
+<pre class="line-numbers language-none"><code class="language-none">npm i --save gitalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<br>
+
+<h4 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h4><p>在Blog的首页文件<code>index.html</code>的<code>&lt;head&gt;&lt;/head&gt;</code>标签之间引入Gitalk：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;head&gt;
+&lt;!--引入Gitalk--&gt;
+&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.css&quot;&gt;
+&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.min.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在<code>index.html</code>的<code>&lt;body&gt;&lt;/body&gt;</code>标签之间创建一个容器用于存放Gitalk：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;div id&#x3D;&quot;gitalk-container&quot;&gt;&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>添加如下参数，声明变量<code>gitalk</code>:</p>
+<pre class="line-numbers language-none"><code class="language-none">var gitalk &#x3D; new Gitalk(&#123;
+    clientID: &#39;填入刚创建OAuth的client ID&#39;,
+    clientSecret: &#39;填入刚创建OAuth的client Secret&#39;,
+    repo: &#39;填入评论仓库的repo名称&#39;,
+    owner: &#39;填入你的Github用户名&#39;,
+    admin:  [&#39;填入你的Github用户名&#39;],
+    id: location.pathname,      &#x2F;&#x2F; 这个不要改
+    language:&#39;zh-CN&#39;, &#x2F;&#x2F; 设置界面语言为中文，如需英文改为&#39;en&#39;
+    distractionFreeMode: false  &#x2F;&#x2F; 这是评述输入框聚焦模式，默认关闭，如需开启改成&#39;true&#39;
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在以上参数中分别填入刚刚创建好的OAuth application信息。</p>
+<h5 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a><font style="color:#FF0000;">注意：</font></h5><p>这里<code>repo</code>的名称只需填入创建仓库时填写的名称，无需添加<code>.github.io</code>等后缀。<br><br></p>
+<p>在参数代码后添加render，以渲染<code>index.html</code>页面中的评论组件界面：</p>
+<pre class="line-numbers language-none"><code class="language-none">gitalk.render(&#39;gitalk-container&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<br>
+
+<p>以上配置完成后，即可重新部署Blog页面，快去看看效果吧~<br><br><br><br></p>
             
 
 
             <!-- copyright -->
+            
+                <div class="article-footer-copyright">
+    <p><span>作者:</span><a href="/" title="访问 墨大先生的个人博客">墨大先生</a></p>
+    <p><span>发布时间:</span>2023年04月10日 - 22:20</p>
+    <p><span>原文链接：</span><a href="/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/" title="轻松搭建博客评论组件Gitalk">轻松搭建博客评论组件Gitalk</a>
+    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
             
             <!-- copyright -->
         </div>
@@ -329,7 +397,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%9E%8E%E6%8A%98%E8%85%BE/" rel="tag">瞎折腾</a>
 
             </div>
         
@@ -339,25 +407,25 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/09/stable-diffusion%E5%AE%8C%E5%85%A8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"
-                    data-tooltip="Stable Diffusion 本地部署安装指南"
-                    aria-label="上一篇: Stable Diffusion 本地部署安装指南"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
             </li>
             <li class="post-action">
                 
-                    <a
-                        class="post-action-btn btn btn--disabled"
-                        aria-hidden="true"
-                    >
-                        
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/04/09/stable-diffusion%E5%AE%8C%E5%85%A8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"
+                    data-tooltip="Stable Diffusion 本地部署安装指南"
+                    aria-label="下一篇: Stable Diffusion 本地部署安装指南"
+                >
+                    
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
@@ -380,7 +448,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                     title="分享到 Facebook"
                     aria-label="分享到 Facebook"
                 >
@@ -393,7 +461,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                    target="new" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                     title="global.share_on_linkedin"
                     aria-label="global.share_on_linkedin"
                 >
@@ -406,7 +474,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/&amp;title=辞旧迎新的开篇"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/&amp;title=轻松搭建博客评论组件Gitalk"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -464,25 +532,25 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/09/stable-diffusion%E5%AE%8C%E5%85%A8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"
-                    data-tooltip="Stable Diffusion 本地部署安装指南"
-                    aria-label="上一篇: Stable Diffusion 本地部署安装指南"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
             </li>
             <li class="post-action">
                 
-                    <a
-                        class="post-action-btn btn btn--disabled"
-                        aria-hidden="true"
-                    >
-                        
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/04/09/stable-diffusion%E5%AE%8C%E5%85%A8%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"
+                    data-tooltip="Stable Diffusion 本地部署安装指南"
+                    aria-label="下一篇: Stable Diffusion 本地部署安装指南"
+                >
+                    
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
@@ -505,7 +573,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                     title="分享到 Facebook"
                     aria-label="分享到 Facebook"
                 >
@@ -518,7 +586,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                    target="new" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                     title="global.share_on_linkedin"
                     aria-label="global.share_on_linkedin"
                 >
@@ -531,7 +599,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/&amp;title=辞旧迎新的开篇"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/&amp;title=轻松搭建博客评论组件Gitalk"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -575,7 +643,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                         aria-label="分享到 Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
@@ -588,7 +656,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"
+                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"
                         aria-label="global.share_on_linkedin"
                     >
                         <i class="fab fa-linkedin" aria-hidden="true"></i><span>global.share_on_linkedin</span>
@@ -601,7 +669,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/&amp;title=辞旧迎新的开篇"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/&amp;title=轻松搭建博客评论组件Gitalk"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -668,7 +736,7 @@
               repo: 'blog-comments',
               owner: 'mrmoda',
               admin: ['mrmoda'],
-              id: '2023/04/06/辞旧迎新的开篇/',
+              id: '2023/04/10/轻松搭建博客评论组件Gitalk/',
               ...{"language":"zh-CN","perPage":10,"distractionFreeMode":false,"enableHotKey":true,"pagerDirection":"first"}
             }).render('gitalk')
           })()

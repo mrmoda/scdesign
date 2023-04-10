@@ -6,7 +6,7 @@
   <link href="http://chenzp.top/atom.xml" rel="self"/>
   
   <link href="http://chenzp.top/"/>
-  <updated>2023-04-10T14:51:08.429Z</updated>
+  <updated>2023-04-10T18:18:47.368Z</updated>
   <id>http://chenzp.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>轻松搭建博客评论组件Gitalk</title>
+    <link href="http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/"/>
+    <id>http://chenzp.top/2023/04/10/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%BB%84%E4%BB%B6Gitalk/</id>
+    <published>2023-04-10T14:20:33.000Z</published>
+    <updated>2023-04-10T18:18:47.368Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><blockquote><p>Gitalk评论组件，用过都说好！！</p></blockquote><br>最近想给博客加个评论功能，被朋友推荐提到最多的就是Gitalk评论组件。它无需自建数据库，而且支持Github登录，非常适合轻量级网站应用。虽说组件很赞，但对于我这种技术小白来说还是研究了一晚上才终于成功部署。于是我决定把详细的安装过程以及注意事项整理分享出来，希望能帮到和我一样有需要的朋友。<p>安装好的Gitalk界面长这样👇<br><br></p><center><img src="20230410_01_img-001.webp"></img></center>接下来，让我们开始为自己的博客添加Gitalk组件。💪<br><br><h4 id="创建评论仓库repo"><a href="#创建评论仓库repo" class="headerlink" title="创建评论仓库repo"></a>创建评论仓库repo</h4><p>我们需要一个容器来存放Gitalk生成的评论数据，可以在<a href="https://github.com/">Github</a>上创建一个存放评论的空仓库，我们就叫它<code>gitalk-comments</code>。<br><br></p><center><img src="20230410_01_img-002.webp"></img></center><br>已经创建完的空仓库：<br><center><img src="20230410_01_img-003.webp"></img></center><br><br><h4 id="创建OAuth-application"><a href="#创建OAuth-application" class="headerlink" title="创建OAuth application"></a>创建OAuth application</h4><p>接下来，我们需要在Github上<a href="https://github.com/settings/profile">创建一个属于我们自己的Gitalk应用</a>。</p><p>点击右上角用户头像，在菜单中点击“Settings”，进入设置页面。</p><center><img src="20230410_01_img-004.webp"></img></center><br><p>在设置页面中，点击左侧列表最底部<code>Developer settings</code>。<br><br></p><center><img src="20230410_01_img-005.webp"></img></center><br>进入创建OAuth application页面。<br><center><img src="20230410_01_img-006.webp"></img></center><br><h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><font style="color:#FF0000;">注意：</font></h5><p>这里的<code>Homepage URL</code>与<code>Authorization callback URL</code>要填写自己博客的域名。<br><br><br>点击“Register application”注册之后，我们会跳转到详细配置页面。<br><br></p><center><img src="20230410_01_img-007.webp"></img></center><p>我们还需要创建这个<code>clientSecret</code>密钥，点击“Generate a new client secret”即可创建。<br>记录下这里的<code>client ID</code>以及<code>client Secret</code>。<br><br></p><h4 id="安装Gitalk"><a href="#安装Gitalk" class="headerlink" title="安装Gitalk"></a>安装Gitalk</h4><p>运行终端，打开Blog文件根目录。比如我的Blog文件在<code>E:\blog</code>，那么在终端输入如下指令：</p><pre class="line-numbers language-none"><code class="language-none">cd E:\blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后输入npm指令安装Gitalk：</p><pre class="line-numbers language-none"><code class="language-none">npm i --save gitalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><h4 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h4><p>在Blog的首页文件<code>index.html</code>的<code>&lt;head&gt;&lt;/head&gt;</code>标签之间引入Gitalk：</p><pre class="line-numbers language-none"><code class="language-none">&lt;head&gt;&lt;!--引入Gitalk--&gt;&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.css&quot;&gt;&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;gitalk&#x2F;dist&#x2F;gitalk.min.js&quot;&gt;&lt;&#x2F;script&gt;&lt;&#x2F;head&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在<code>index.html</code>的<code>&lt;body&gt;&lt;/body&gt;</code>标签之间创建一个容器用于存放Gitalk：</p><pre class="line-numbers language-none"><code class="language-none">&lt;div id&#x3D;&quot;gitalk-container&quot;&gt;&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>添加如下参数，声明变量<code>gitalk</code>:</p><pre class="line-numbers language-none"><code class="language-none">var gitalk &#x3D; new Gitalk(&#123;    clientID: &#39;填入刚创建OAuth的client ID&#39;,    clientSecret: &#39;填入刚创建OAuth的client Secret&#39;,    repo: &#39;填入评论仓库的repo名称&#39;,    owner: &#39;填入你的Github用户名&#39;,    admin:  [&#39;填入你的Github用户名&#39;],    id: location.pathname,      &#x2F;&#x2F; 这个不要改    language:&#39;zh-CN&#39;, &#x2F;&#x2F; 设置界面语言为中文，如需英文改为&#39;en&#39;    distractionFreeMode: false  &#x2F;&#x2F; 这是评述输入框聚焦模式，默认关闭，如需开启改成&#39;true&#39;&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在以上参数中分别填入刚刚创建好的OAuth application信息。</p><h5 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a><font style="color:#FF0000;">注意：</font></h5><p>这里<code>repo</code>的名称只需填入创建仓库时填写的名称，无需添加<code>.github.io</code>等后缀。<br><br></p><p>在参数代码后添加render，以渲染<code>index.html</code>页面中的评论组件界面：</p><pre class="line-numbers language-none"><code class="language-none">gitalk.render(&#39;gitalk-container&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><p>以上配置完成后，即可重新部署Blog页面，快去看看效果吧~<br><br><br><br></p>]]></content>
+    
+    
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;p&gt;从此你不再是一个人孤独寂寞冷~&lt;/p&gt;
+&lt;!-- more --&gt;</summary>
+    
+    
+    
+    
+    <category term="瞎折腾" scheme="http://chenzp.top/tags/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="博客" scheme="http://chenzp.top/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Stable Diffusion 本地部署安装指南</title>
@@ -44,7 +67,7 @@
     <link href="http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/"/>
     <id>http://chenzp.top/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/</id>
     <published>2023-04-06T12:28:18.000Z</published>
-    <updated>2023-04-10T14:51:00.428Z</updated>
+    <updated>2023-04-10T16:17:09.531Z</updated>
     
     <content type="html"><![CDATA[<!-- excerpt --><br><blockquote><p> 我终于有空搞搞自己的博客了。</p></blockquote><br><p><img src="/2023/04/06/%E8%BE%9E%E6%97%A7%E8%BF%8E%E6%96%B0%E7%9A%84%E5%BC%80%E7%AF%87/01.png"><br>&emsp;&emsp;搞个人博客是我一直以来的夙愿。<br>&emsp;&emsp;但由于拖延症晚期的各种表征（比如懒），导致最终都没能落地。<br>&emsp;&emsp;今年我把坚持写文章作为最重要的个人年度项目。<br>&emsp;&emsp;除整合曾经发表过的文章之外，再继续原创关于设计与技术的文章。<br>&emsp;&emsp;（当然，缩短发布周期是亟待解决的重中之重）<br>&emsp;&emsp;……</p><p>&emsp;&emsp;魔幻的2022年刚刚过去不久，充满未知的2023年即将过去三分之一。<br>&emsp;&emsp;自2019年起，疫情肆虐让我们生活的这个世界完全改变了。<br>&emsp;&emsp;之后的三年好似白驹过隙，而过去的种种仿佛都变成了前世的记忆。<br>&emsp;&emsp;出门戴口罩、每隔三天的小棉棒刮喉咙，以及对绿色二维码的偏爱。<br>&emsp;&emsp;从居家隔离、无接触配送、到被感染再隔离。<br>&emsp;&emsp;我们似乎习惯了疫情之下的生活。</p><p>&emsp;&emsp;那些愤怒、恐惧与混乱，使我不禁联想起上个世纪20年代的世界。<br>&emsp;&emsp;生逢乱世的先辈们是否也曾同样充满迷茫、彷徨与无可奈何？</p><p>&emsp;&emsp;有人说，那是属于现代人的黄金时代。<br>&emsp;&emsp;它为身处混沌的人类照亮方向，更诞生了无数影响深远的大家。<br>&emsp;&emsp;也有人说，这是属于当代人的黄金时代。<br>&emsp;&emsp;它日新月异，饱含风险与机遇，同时也充满未知与挑战。</p><p>&emsp;&emsp;我们无法选择自己出生的时代，但可以选择活在当下的方式。<br>&emsp;&emsp;假如人生唯有盖棺方能定论，那么重要的便是活着的过程。<br>&emsp;&emsp;不断地探索与尝试，经历失败与挫折的洗礼。<br>&emsp;&emsp;如此，最终功成与否似乎都不再重要了。<br>&emsp;&emsp;……</p><p>&emsp;&emsp;也许走出阴霾的最优解，就是选择相信。<br>&emsp;&emsp;相信光明，必将到来。</p><p>&emsp;&emsp;那么就在这2023的开端，祝自己好运，也祝各位好运。</p><br><br><!-- excerpt -->]]></content>
     
