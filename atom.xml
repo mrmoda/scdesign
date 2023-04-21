@@ -6,7 +6,7 @@
   <link href="http://chenzp.top/atom.xml" rel="self"/>
   
   <link href="http://chenzp.top/"/>
-  <updated>2023-04-10T18:21:57.570Z</updated>
+  <updated>2023-04-21T16:07:21.774Z</updated>
   <id>http://chenzp.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>局域网或公网访问本地部署的Stable Diffusion</title>
+    <link href="http://chenzp.top/2023/04/21/%E5%B1%80%E5%9F%9F%E7%BD%91%E6%88%96%E8%80%85%E5%85%AC%E7%BD%91%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84Stable-Diffusion/"/>
+    <id>http://chenzp.top/2023/04/21/%E5%B1%80%E5%9F%9F%E7%BD%91%E6%88%96%E8%80%85%E5%85%AC%E7%BD%91%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84Stable-Diffusion/</id>
+    <published>2023-04-21T14:33:56.000Z</published>
+    <updated>2023-04-21T16:07:21.774Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><blockquote><p>用记事本编辑<code>webui-user.bat</code>在<code>COMMANDLINE_ARGS=</code>后面增加参数，可以实现局域网或者公网访问搭建的<code>Stable Diffusion</code>。</p></blockquote><br><p>具体方法如下：</p><ul><li><p>使用<code>--listen</code>参数，可以让让服务器监听网络连接。 这将允许本地网络上的设备访问 UI界面，如果您配置了端口转发，互联网上的计算机也可以访问。用此参数启动后，打开终端命令行窗口，输入<code>ipconfig</code>命令回车，查看本机的局域网地址，比如<code>192.168.1.XX</code>，然后在局域网其他机器或者手机上的浏览器输入<code>192.168.1.XX:7860</code>这个地址就能访问WebUI界面了，生成的图片照样会保存在本地部署的机器上。</p></li><li><p>使用<code>--share</code>参数，可以从公网访问本地部署的Stable Diffusion。用这个参数启动完成后，在命令行窗口可以看到一个链接<code>xxx.app.gradio</code>，其中<code>XXX</code>每次启动后是变化的，在浏览器用这个网址链接就可以在公网上用电脑或者手机访问本地搭建的Stable Diffusion了。链接有效期72小时，命令行窗口有提示。</p></li><li><p>使用<code>--port xxxx</code>参数，让服务监听指定端口, <code>xxxx</code>是期望的端口。所有小于<code>1024</code>的端口都需要<code>root/admin</code>权限，因此建议使用大于<code>1024</code>的端口，默认端口为<code>7860</code>。</p></li><li><p>使用<code>--share --gradio-auth 用户名:密码</code> 参数可以添加共享认证功能。可在命令上分别添加多组用户名和密码(用户:密码1, 用户2:密码2)，命令里的符号记得用英文符号。</p></li></ul><br><br><br>]]></content>
+    
+    
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;p&gt;用手机平板也能玩AI生图了。&lt;/p&gt;
+&lt;!-- more --&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>轻松搭建博客评论组件Gitalk</title>
