@@ -6,7 +6,7 @@
   <link href="http://chenzp.top/atom.xml" rel="self"/>
   
   <link href="http://chenzp.top/"/>
-  <updated>2023-06-21T16:38:31.036Z</updated>
+  <updated>2023-06-21T16:49:40.952Z</updated>
   <id>http://chenzp.top/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>解决使用Office365账号登陆激活Office365时报错</title>
-    <link href="http://chenzp.top/2023/06/22/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8Office365%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86%E6%BF%80%E6%B4%BBOffice365%E6%97%B6%E6%8A%A5%E9%94%99/"/>
-    <id>http://chenzp.top/2023/06/22/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8Office365%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86%E6%BF%80%E6%B4%BBOffice365%E6%97%B6%E6%8A%A5%E9%94%99/</id>
+    <title>解决使用Office365账号登陆激活时报错</title>
+    <link href="http://chenzp.top/2023/06/22/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8Office365%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86%E6%BF%80%E6%B4%BB%E6%97%B6%E6%8A%A5%E9%94%99/"/>
+    <id>http://chenzp.top/2023/06/22/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8Office365%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86%E6%BF%80%E6%B4%BB%E6%97%B6%E6%8A%A5%E9%94%99/</id>
     <published>2023-06-21T16:31:21.000Z</published>
-    <updated>2023-06-21T16:38:31.036Z</updated>
+    <updated>2023-06-21T16:49:40.952Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><blockquote><p>重点是更改IE选项设置</p></blockquote><p>今天在安装完Office365后，打开OneDrive准备使用账号登陆激活时无法弹出登陆框界面，报错提示为“0xCAA8000”无法完成激活。<br></br></p><h3 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a>解决方法如下：</h3><ul><li>首先进入开始菜单“运行”，在运行窗口中输入<code>inetcpl.cpl</code>回车以进入IE选项设置：</li><li>切换到“高级”，勾选“Use TLS 1.0/2.0/3.0”后点击“应用”：</li><li>进入Offie软件点击登录，此时可以正常弹出输入邮箱地址和密码对话框。</li></ul>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><blockquote><p>重点是更改IE选项设置</p></blockquote><p>今天在安装完Office365后，打开OneDrive准备使用账号登陆激活时无法弹出登陆框界面，报错提示为“0xCAA8000”无法完成激活。<br></br></p><h4 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a>解决方法如下：</h4><ul><li>首先进入开始菜单“运行”，在运行窗口中输入<code>inetcpl.cpl</code>回车以进入IE选项设置：</li><li>切换到“高级”，勾选“Use TLS 1.0/2.0/3.0”后点击“应用”：</li><li>进入Offie软件点击登录，此时可以正常弹出输入邮箱地址和密码对话框。</li></ul>]]></content>
     
     
     <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
